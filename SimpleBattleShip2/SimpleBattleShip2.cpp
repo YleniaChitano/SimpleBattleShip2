@@ -7,7 +7,7 @@ void makeEmptyBoard();
 int randomRow();
 void writeLetters();
 void makeBoard(int numberOfShips);
-void printBoard(std::vector <char>& board);
+void printBoard(std::vector <std::vector<char>>& board);
 
 int numberOfShips = 1;
 int M = 6;
@@ -75,7 +75,7 @@ void makeBoard(int numberOfShips)
 
 
 
-void printBoard(std::vector <char>& board)
+void printBoard(std::vector <std::vector<char>>& board)
 {
     for (unsigned int i = 0; i < M; i++) {
 
