@@ -25,9 +25,13 @@ int main()
     int numberOfShots = 0;
     int maxShots = 20;
     bool allShips = false;
+
+    makeEmptyBoard();
+
+
      if (numberOfShots <= maxShots && allShips == false)
      {
-         makeEmptyBoard(); 
+          
      }
 
      else
