@@ -72,7 +72,7 @@ int randomColumn()
 void writeLetters()
 {
     std::cout << " -------------\n";
-    std::cout << " |A|B|C|D|E|F|";
+    std::cout << " |A|B|C|D|E|F|\n";
 }
 
 void makeBoard(int numberOfShips, std::vector <std::vector<char>>& board)
@@ -142,15 +142,17 @@ void printPlayerBoard(std::vector <std::vector<char>>& board)
                 std::cout << "|";
             }
 
-            if (board[i][j] == NULL)
+            if (board[i][j] == 'H' | board[i][j] == 'M')
             {
-                std::cout << " ";
+             std::cout << board[i][j];
             }
 
             else
             {
-                std::cout << board[i][j];
+                std::cout << " ";
             }
+
+           
 
             std::cout << "|";
 
