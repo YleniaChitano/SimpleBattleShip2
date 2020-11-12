@@ -9,7 +9,7 @@ int randomRow();
 void writeLetters();
 void makeBoard(int numberOfShips, std::vector <std::vector<char>>& board);
 void printBoard(std::vector <std::vector<char>>& board);
-void printPlayerBoard();
+void printPlayerBoard(std::vector <std::vector<char>>& board);
 void shoot(std::vector <std::vector<char>>& board);
 void play();
 
@@ -48,6 +48,7 @@ void makeEmptyBoard()
 
     makeBoard(numberOfShips, board);
     printBoard(board);
+    printPlayerBoard(board);
 }
 
 int randomRow()
@@ -107,13 +108,14 @@ void printBoard(std::vector <std::vector<char>>& board)
                std::cout << "|";
            }
 
-            if (board[i][j] == NULL)
+            if (board[i][j] == 'S')
             {
-                std::cout << " ";
+                std::cout << board[i][j];
+                
             }
 
             else
-            { std::cout << board[i][j]; }
+            { std::cout << " "; }
            
             std::cout << "|";
 
@@ -126,9 +128,39 @@ void printBoard(std::vector <std::vector<char>>& board)
     std::cout << std::endl;
 }
 
-void printPlayerBoard()
+void printPlayerBoard(std::vector <std::vector<char>>& board)
 {
+    for (unsigned int i = 0; i < M; i++) {
 
+
+
+        for (unsigned int j = 0; j < N; j++) {
+
+            if (j == 0)
+            {
+                std::cout << (i + 1);
+                std::cout << "|";
+            }
+
+            if (board[i][j] == NULL)
+            {
+                std::cout << " ";
+            }
+
+            else
+            {
+                std::cout << board[i][j];
+            }
+
+            std::cout << "|";
+
+
+
+        }
+        std::cout << std::endl;
+    }
+    writeLetters();
+    std::cout << std::endl;
 }
 
 void shoot(std::vector <std::vector<char>>& board)
