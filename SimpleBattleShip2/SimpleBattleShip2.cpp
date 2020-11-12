@@ -6,10 +6,10 @@
 void makeEmptyBoard();
 int randomRow();
 void writeLetters();
-void makeBoard(int numberOfShips);
+void makeBoard(int numberOfShips, std::vector <std::vector<char>>& board);
 void printBoard(std::vector <std::vector<char>>& board);
 
-int numberOfShips = 1;
+int numberOfShips = 2;
 int M = 6;
 int N = 6;
 
@@ -42,7 +42,7 @@ void makeEmptyBoard()
 
     
 
-    makeBoard(numberOfShips);
+    makeBoard(numberOfShips, board);
     printBoard(board);
 }
 
@@ -50,7 +50,7 @@ int randomRow()
 {
     int index;
     srand(std::time(0));
-    index = (1 + rand() % 6);
+    index = (rand() % M);
 
     return index;
 }
@@ -59,7 +59,7 @@ int randomColumn()
 {
     int index;
     srand(std::time(0));
-    index = (1 + rand() % 6);
+    index = (rand() % N);
 
     return index;
 }
@@ -69,10 +69,21 @@ void writeLetters()
     std::cout << "| A | B | C | D | E | F |";
 }
 
-void makeBoard(int numberOfShips)
+void makeBoard(int numberOfShips, std::vector <std::vector<char>>& board)
 {
-    const int SHIP[2] = { randomRow(), randomColumn() };
+    char SHIP = 'S';
+    for (int i = 0; i < numberOfShips; i++)
+    {
+        if (board[randomRow()][randomColumn()] != SHIP)
+        {
+            board[randomRow()][randomColumn()] = SHIP;
+        }
 
+        else
+        {
+            i = i - 1;
+        }
+    }
 }
 
 
