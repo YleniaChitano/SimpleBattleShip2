@@ -23,13 +23,13 @@ int main()
 
 void makeEmptyBoard()
 {
-    char BLANK = NULL;
+    char BLANK =  ' ';
 
     std::vector <std::vector <char>> board(M, std::vector<char>(N)); // A vector to store the content of the board
-    for (unsigned int i = 0; i < board.size(); i++) 
+    for (unsigned int i = 0; i < M; i++) 
     {
 
-        for (unsigned int j = 0; j < sizeof(board[i]) / sizeof(board[i][j]); j++) {
+        for (unsigned int j = 0; j < N; j++) {
 
 
 
@@ -40,8 +40,23 @@ void makeEmptyBoard()
 
     }
 
+    for (unsigned int i = 0; i < M; i++) {
+
+        for (unsigned int j = 0; j < N; j++) {
+
+
+
+            std::cout << board[i][j];
+
+
+
+        }
+        std::cout << std::endl;
+    }
+    std::cout << std::endl;
+
     makeBoard(numberOfShips);
-    printBoard(board);
+    //printBoard(board);
 }
 
 int randomRow()
